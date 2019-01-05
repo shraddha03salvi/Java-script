@@ -1,5 +1,6 @@
 var utility = require('../Utility/utility.js');
-var rl=require('readline-Sync');
+var rl = require('readline-Sync');
+
 function palindrome() {
     var num = rl.question("Enter the range");
     console.log("The Palindrome and Anagaram are present in that range")
@@ -10,4 +11,3 @@ function palindrome() {
     }
 }
 palindrome();
-    

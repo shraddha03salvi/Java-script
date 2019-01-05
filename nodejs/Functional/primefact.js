@@ -3,7 +3,7 @@ var rl = require('readline');
 var prompt = rl.createInterface(process.stdin, process.stdout);
 var utility = require('../Utility/utility.js');
 
-//var prompt = rl.userInput();
+//nvar prompt = rl.userInput();
 
 function primeFactor() {
 prompt.question('Enter the number', (number) => {

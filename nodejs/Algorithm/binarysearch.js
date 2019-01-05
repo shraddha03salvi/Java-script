@@ -1,7 +1,7 @@
 
-
 var utility = require('../Utility/utility.js');
 var rl=require('readline-Sync');
+
 //var Utility = require('../../UtilityProgram/Utility');
 //var readline = require('readline-sync');
 function binarySearch() {

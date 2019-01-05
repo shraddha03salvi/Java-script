@@ -1,6 +1,6 @@
 // replace:
 
-var rl=require('readline-Sync');
+var rl = require('readline-Sync');
 module.exports = {
     userInput: function () {
         var rl = require('readline');
@@ -34,9 +34,13 @@ module.exports = {
         }
         return arr;
     },
+    inputread() {
+        var indices = rl.question("");
+        return indices;
+    },
 
     /*--------------------------------------------------------------------*/
-   /*
+    /*
      *@purpose :to print Two Dimensional Array,from user input elements 
      *@description :ask user to enter total number of column and row
      *convert into two Dimenstional array format and prints 
@@ -185,7 +189,7 @@ module.exports = {
         console.log(t);
     },
     /*================================================================================================================*/
-    isPrime(index) {
+    /*isPrime(index) {
         var n = 2;
         while (n <= index / 2) {
             if (index % n == 0) {
@@ -195,42 +199,60 @@ module.exports = {
         }
         return index;
     },
-/*================================================================================================================*/
-prime(res) {
-    for (let index = 2; index < res; index++) {
-        if (this.isPrime(index)) {
-            console.log(index);
-            bubbleString
+    /*================================================================================================================*/
+  /* prime(res) {
+        for (let index = 2; index < res; index++) {
+            if (this.isPrime(index)) {
+                console.log(index);
+                bubbleString
+            }
         }
-    }
-},
-
-
-    /*Aim:Write  a program for prime Palindrome 
-
-    * @author shraddha Dhatavkar
-
-        * @version v10.11.0
-
-        * @since 22/12/2018
-
-        */
-
-       palindrome(num) {
+   },*/
+  /*  *@purpose : To check the number wheather its palindrome or not 
+    *@param   : num-user input number 
+    *@description : take number from user input and check its palindrome or not 
+    * */
+    palindrome(num) {
         var temp = num;
-        var rem = 0,
-            rev = 0;
+        var rem = 0, rev = 0;
+        //loop untill num is not equal to zero
         while (num != 0) {
+            //take reminder of the number 
             rem = num % 10;
+            //keep on adding element 
             rev = rev * 10 + rem;
+            //devide the number to get next digit of given number  
             num = Math.floor(num / 10);
         }
+        // check both number are equal and return result
         if (temp == rev) {
             return true;
-        } else {
+        }
+        else {
             return false;
         }
     },
+//=====================================================================================================================//
+prime(res) {
+    for (let index = 2; index < res; index++) {
+        if (this.isPrime(index)) {
+            console.log(index); 
+        }
+    }
+},
+// method to check the prime numbers 
+isPrime(index) {
+    var n = 2;
+    while (n <= index / 2) {
+        if (index % n == 0) {
+            return 0;
+        }
+        n++;
+    }
+    return index;
+},
+
+    
     /*======================================================================================*/
 
 
@@ -288,7 +310,8 @@ prime(res) {
     },
     /*=================================================================================*/
     /*Aim:User Input and Replace String Template “Hello <<UserName>>, How are you?” */
-    function () {
+    function (ans) {
+        var ans;
         var str = "Hello Shraddha, How are you?";
         var n = ans.length;
         console.log("length is" + n);
@@ -379,30 +402,30 @@ prime(res) {
     },
 
     //*============================================================================================================*//
-   /* 
-* @purpose : To genarate primeFactor numbers according to the userinput
-*/
+    /* 
+     * @purpose : To genarate primeFactor numbers according to the userinput
+     */
 
-/* @description : Finding the primefactors of a given number */
-primeFactor(number) {
-    if (number > 0) {
-    while (number % 2 == 0) {
-    console.log("2 ");
-    number = number / 2;
-    }
-    
-    for (let index = 3; index * index <= number; index = index + 2) {
-    while (number % index == 0) {
-    console.log(index + "");
-    number = number / index;
-    }
-    }
-    if (number > 2) {
-    console.log(number);
-    }
-    }
+    /* @description : Finding the primefactors of a given number */
+    primeFactor(number) {
+        if (number > 0) {
+            while (number % 2 == 0) {
+                console.log("2 ");
+                number = number / 2;
+            }
+
+            for (let index = 3; index * index <= number; index = index + 2) {
+                while (number % index == 0) {
+                    console.log(index + "");
+                    number = number / index;
+                }
+            }
+            if (number > 2) {
+                console.log(number);
+            }
+        }
     },
-    
+
     /*============================================================================================================*/
     //Aim:-(Gambler)
     // Print Number of Wins and Percentage of Win and Loss.//
@@ -454,7 +477,10 @@ primeFactor(number) {
     },
     /*===============================================================================================*/
     //Aim:-Write a program Quadratic.java to find the roots of the equation a*x*x + b*x + c. //
-    quadratic() {
+    quadratic(a,b,c) {
+        var a;
+        var b;
+        var c;
         var root = Math.sqrt(b * b - 4 * a * c);
         var denom = 2 * a;
 
@@ -492,7 +518,7 @@ primeFactor(number) {
             console.log("Invalid day ")
         }
     },
-    
+
     /*==========================================================================================================================*/
     //Aim:-Vending Machine
     vendingMachine(amount) {
@@ -514,69 +540,73 @@ primeFactor(number) {
         if (amount > 0)
             this.vendingMachine(amount);
     },
-/*==============================================================================================================*/
-binarySearch(res, low, high, ele) {
-    var mid;
-    while (high >= low) {
-        mid = Math.floor(low + (high - low) / 2);
-        if (res[mid] == ele) {
-            return mid;
-        }
-        if (res[mid] > ele) {
-            high = mid - 1;
-        } else {
-            low = mid + 1;
-        }
-    }
-    return -1;
-},
-/*================================================================================================================*/
-bubbleforNums(arr) {
-    for (let i = 0; i < arr.length; i++) {
-    for (let j = 0; j < arr.length - i - 1; j++) {
-    if (arr[j] > arr[j + 1]) {
-    let temp = arr[j];
-    arr[j] = arr[j + 1];
-    arr[j + 1] = temp;
-    }
-    }
-    }
-    console.log(arr);
-    return arr;
-    },
-  /*---------------------------------------------------------------------------------------------------------------*/
-  binaryString(res, low, high, ele) {
-    var mid;
-
-    while (high >= low) {
-        mid = Math.floor(low + (high - low) / 2);
-        if (res[mid] == ele) {
-
-            return mid;
-        } else if (res[mid] > ele) {
-            high = mid - 1;
-        } else {
-            low = mid + 1;
-        }
-    }
-    return -1;
-},
-/*
-     *@purpose:to convert the binary value to the decimal 
-     */
-    binaryToDecimal(res) {
-        var sum = 0;
-        for (let i = 0; i < res.length; i++) {
-            if (res[res.length - (i + 1)] === '1') {
-                sum = sum + 2 ** i;
+    /*==============================================================================================================*/
+    binarySearch(res, low, high, ele) {
+        var mid;
+        while (high >= low) {
+            mid = Math.floor(low + (high - low) / 2);
+            if (res[mid] == ele) {
+                return mid;
+            }
+            if (res[mid] > ele) {
+                high = mid - 1;
+            } else {
+                low = mid + 1;
             }
         }
-        return sum;
-
+        return -1;
     },
+    /*================================================================================================================*/
+    bubbleforNums(arr) {
+        for (let i = 0; i < arr.length; i++) {
+            for (let j = 0; j < arr.length - i - 1; j++) {
+                if (arr[j] > arr[j + 1]) {
+                    let temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                }
+            }
+        }
+        console.log(arr);
+        return arr;
+    },
+    /*---------------------------------------------------------------------------------------------------------------*/
+    binaryString(res, low, high, ele) {
+        var mid;
+
+        while (high >= low) {
+            mid = Math.floor(low + (high - low) / 2);
+            if (res[mid] == ele) {
+
+                return mid;
+            } else if (res[mid] > ele) {
+                high = mid - 1;
+            } else {
+                low = mid + 1;
+            }
+        }
+        return -1;
+    },
+   /* *@purpose:to convert the binary value to the decimal 
+    *@param  : res-binary value 
+    *@description :convert binary value into the decimal value and return the result
+    */
+   binaryToDecimal(res) {
+    var sum = 0;
+    for (let i = 0; i < res.length; i++) {
+        //condition to check binary 1 value 
+        if (res[res.length - (i + 1)] === '1') {
+            // calculate the 2's power value
+            sum = sum + 2 ** i;
+        }
+    }
+    return sum;
+
+},
+/*
     /*==================================================================================================*/
     bubbleSort(res) {
-
+        // compare first and next elements in array and arrange 
         for (let i = 0; i < res.length; i++) {
             for (let j = i + 1; j < res.length; j++) {
                 if (res[i] > res[j]) {
@@ -590,111 +620,369 @@ bubbleforNums(arr) {
         }
         return res;
     },
-/*===========================================================================================================================*/
-bubbleString(str) {
-    var ch = str;
-    for (let i = 0; i < ch.length; i++) {
-        for (let j = 0; j < ch.length; j++) {
-            if (ch[j] > ch[j + 1]) {
-                var temp = ch[j];
-                ch[j] = ch[j + 1];
-                ch[j + 1] = temp;
+
+    /*===========================================================================================================================*/
+    bubbleString(str) {
+        var ch = str;
+        for (let i = 0; i < ch.length; i++) {
+            for (let j = 0; j < ch.length; j++) {
+                if (ch[j] > ch[j + 1]) {
+                    var temp = ch[j];
+                    ch[j] = ch[j + 1];
+                    ch[j + 1] = temp;
+                }
             }
         }
-    }
-    return ch;
-},
-/*
+        return ch;
+    },
+    /*
      *@purpose :convertion of decimal value to the binary 
      *@description: take decimal value from user and conver it into the binary form
      *swap the generated nibbles and by using that binary value convert it into decimal form
      */
     toBinary(num) {
-
+        // take empty string 
         var str = "";
+        //loop get binary value 
         while (num > 0.99) {
             var a = Math.floor(num % 2);
+            //adding bytes one by one 
             str = (a + str);
             num = num / 2;
         }
         console.log(str);
         //condition for checking 8 bit 
         while (str.length < 8) {
-            str = '0' + str; // if not the add upto reqired bit. 
+            str = '0' + str;     // if not the add upto reqired bit. 
         }
         console.log("nibble", str);
-        var ab = str.substring(0, 4); //First nibble 
-        var bc = str.substring(4, 8); // second nibble
+        var ab = str.substring(0, 4);  //First nibble 
+        var bc = str.substring(4, 8);  // second nibble
         console.log("first nibble", ab);
         console.log("second nibble", bc);
-        var res = bc + ab; // swaping of nibbles 
+        var res = bc + ab;               // swaping of nibbles 
         console.log("after the nibble swap", res);
-        var rs = this.binaryToDecimal(res); // call this method to get decimal value 
+        var rs = this.binaryToDecimal(res);  // call this method to get decimal value 
         console.log(rs);
     },
-/*============================================================================================================*/
-tobin(num) {
-    var str = "";
-    while (num > 0) {
-        var r = num % 2;
-        var str = r + str;
-        num = Math.floor(num / 2);
-    }
-    while (str.length < 8) {
-        str = "0" + str;
-    }
-    return str;
-},
-/*=================================================================================================================*/
-insertionString(str) {
-    var ch = str;
-    for (let i = 0; i < ch.length; i++) {
-        var point = ch[i];
-        var j = i - 1;
-        while (j >= 0 && ch[j] > point) {
-            ch[j + 1] = ch[j];
-            j = j - 1;
+    /*============================================================================================================*/
+    tobin(num) {
+        var str = "";
+        while (num > 0) {
+            var r = num % 2;   
+            var str = r + str;
+            num = Math.floor(num / 2);
         }
-        ch[j + 1] = point;
-    }
-    return ch;
-},
-/*====================================================================================================================*/
-insertion(res) {
-    for (let i = 1; i < res.length; i++) {
-        var point = res[i];
-        var j = i - 1;
-        while (j >= 0 && res[j] > point) {
-            res[j + 1] = res[j];
-            j = j - 1;
+        while (str.length < 8) {
+            str = "0" + str;
         }
-        res[j + 1] = point;
-    }
-    return res;
-},
-/*======================================================================================================================*/
-isPower(num) {
-    if (num == 0)
-        return false;
-    while (num != 1) {
-        if (num % 2 != 0) {
+        return str;
+    },
+    /*=================================================================================================================*/
+    insertionString(str) {
+        var ch = str;
+        for (let i = 0; i < ch.length; i++) {
+            var point = ch[i];
+            var j = i - 1;
+            while (j >= 0 && ch[j] > point) {
+                ch[j + 1] = ch[j];
+                j = j - 1;
+            }
+            ch[j + 1] = point;
+        }
+        return ch;
+    },
+    /*====================================================================================================================*/
+    insertion(res) {
+        for (let i = 1; i < res.length; i++) {
+            var point = res[i];
+            var j = i - 1;
+            while (j >= 0 && res[j] > point) {
+                res[j + 1] = res[j];
+                j = j - 1;
+            }
+            res[j + 1] = point;
+        }
+        return res;
+    },
+    /*======================================================================================================================*/
+    isPower(num) {
+        if (num == 0)
+            return false;
+        while (num != 1) {
+            if (num % 2 != 0) {
+                return false;
+            }
+            num = num / 2;
+        }
+        return true;
+    },
+    /*==================================================================================================================*/
+    // swap method for swaping the string charcter
+    swapString(str, first, last) {
+        var as = '';
+        var ch = [];
+        ch = str.split('');
+        var temp = ch[first];
+        ch[first] = ch[last];
+        ch[last] = temp;
+        for (let index = 0; index < str.length; index++) {
+            as = as + ch[index];
+        }
+        return as;
+    },
+    /*================================================================================================================*/
+
+    fileCall() {
+        var fileStream = require('fs');
+        var f = fileStream.readFileSync('file.txt', 'utf8')
+        var arr = f.split(" " );
+        return arr;
+    },
+    readFile() {
+        var fs = require('fs');
+        
+        var f = fs.readFileSync('input.txt', 'Utf8');
+        return f;
+        },
+
+    mergeSort(res) {
+        var n = res.length;
+        //if size is less than 2 return that.
+        if (n < 2) {
+            return;
+        }
+        //cal mid value 
+        var mid = Math.floor(n / 2);
+        var left = [mid];
+        var right = [n - mid];
+        //store elements in left array which are present before the mid 
+        for (let i = 0; i < mid; i++) {
+            left[i] = res[i];
+        }
+        //store elements in right array which are present before the mid 
+        for (let j = mid; j < n; j++) {
+            right[j - mid] = res[j];
+        }
+        //call mergesort for left halve 
+        this.mergeSort(left);
+        //call mergesort for right halve 
+        this.mergeSort(right);
+        this.merge(left, right, res);
+
+    },
+
+    merge(arr, brr, crr) {
+        var i = 0;
+        var j = 0;
+        var k = 0;
+        //merge elements into crr[]
+        while (i < arr.length && j < brr.length) {
+            if (arr[i] <= brr[j]) {
+                crr[k] = arr[i]
+                i++;
+            } else {
+                crr[k] = brr[j];
+                j++;
+            }
+            k++;
+        }
+        // if arr[] is greater than brr[], push all arr[] into crr[]
+        while (i < arr.length) {
+            crr[k] = arr[i];
+            i++;
+            k++;
+        }
+        // if arr[] is lesser than brr[], push all brr[] into crr[]
+        while (j < brr.length) {
+            crr[k] = brr[j];
+            j++;
+            k++;
+        }
+        return crr;
+    },
+    /*======================================================================================================================*/
+    search(low, high) {
+        if ((high - low) == 1) {
+            return low;
+        }
+        var mid = low + Math.floor((high - low) / 2);
+        console.log("Is it less than " + mid + " ?");
+
+        var ans = rl.question("If YES enter 1 else 0 ");
+        console.log(ans);
+        if (ans == '1') {
+            return this.search(low, mid);
+        } else {
+            return this.search(mid, high);
+        }
+
+    },
+    /*======================================================================================================================*/
+    days( month, day, year) {
+        let y = year - Math.floor((14 - month) / 12);
+        let  x = Math.floor(y + y/4 - y/100 + y/400);
+         let m = month + Math.floor(12 * ((14 - month) / 12) - 2);
+         let d = Math.floor((day + x + (31*m)/12) % 7);
+        return d;
+    },
+    /*================================================================================================================*/
+    day( month, day, year) {
+        let y = year - Math.floor((14 - month) / 12);
+        let  x = Math.floor(y + y/4 - y/100 + y/400);
+         let m = month + Math.floor(12 * ((14 - month) / 12) - 2);
+         let d = Math.floor((day + x + (31*m)/12) % 7);
+        return d;
+    },
+
+
+/*=========================================================================================================================*/
+leapYear(year) {
+    // ensure year is of four digit
+
+        //condition for checking leap 
+        if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
+           return true;
+        }
+        else{
             return false;
         }
-        num = num / 2;
+    },
+
+/*==========================================================================================================================*/
+
+/*==============================================================================================================================*/
+sort1(str) {
+    let ch = str.split('');
+    for (let i = 0; i < str.length; i++) {
+    for (let j = i + 1; j < str.length; j++) {
+    if (ch[i] > ch[j]) {
+    let t = ch[i];
+    ch[i] = ch[j];
+    ch[j] = t;
+    }
+    }
+    }
+    var sortedStr = "";
+    for (let i = 0; i < ch.length; i++) {
+    sortedStr += ch[i];
+    }
+    return sortedStr;
+    },
+    sortSentence(arr) {
+    for (let i = 0; i < arr.length; i++) {
+    for (let j = i + 1; j < arr.length; j++) {
+    if (arr[i] > arr[j]) {
+    let t = arr[i];
+    arr[i] = arr[j];
+    arr[j] = t;
+    }
+    }
+    }
+    return arr;
+    },
+    check(s1, s2) {
+    for (let i = 0; i < s1.length; i++) {
+    if (s1.charAt(i) != s2.charAt(i)) {
+    return false;
+    }
+    }
+    return true;
+    },
+/*=========================================================================================================================*/
+checkAnagram2(str1, str2) {
+
+
+
+    let unsortedStr1 = "" + str1;
+    let unsortedStr2 = "" + str2;
+
+    if (unsortedStr1.length != unsortedStr2.length) {
+        return false;
+    }
+    sortedStr1 = this.sort1(unsortedStr1);
+    sortedStr2 = this.sort1(unsortedStr2);
+
+    let b = this.check(sortedStr1, sortedStr2);
+
+    if (b == true) {
+        return true;
+    }
+    else {
+        return false;
+    }
+},
+
+
+  /*=======================================================================================================================*/
+  findAnaPrime(ii, jj) {
+    var primes = this.findPrime(ii, jj);
+    var n = primes.length;
+
+
+
+    var anaPrimes = [];
+    var h = 0;
+
+    for (let i = 0; i < primes.length - 1; i++) {
+        for (let j = i + 1; j < primes.length - 1; j++) {
+            if (this.checkAnagram2(primes[i], primes[j])) {
+                anaPrimes[h++] = primes[i];
+                anaPrimes[h++] = primes[j];
+            }
+
+        }
+    }
+    return anaPrimes;
+},
+
+
+findPrime(s1, s2) {
+    var count = 0, flag = 0, k = 0;
+    var prime = [];
+
+    for (var i = s1; i <= s2; i++) {
+        for (var j = 2; j < i; j++) {
+            if (i % j == 0) {
+                flag = 0;
+                count++;
+                break;
+            }
+            else {
+                flag = 1;
+            }
+        }
+        if (flag == 1) {
+            prime[k++] = i;
+        }
+    }
+    return prime;
+},
+   // method to check the prime numbers 
+   isPrime(number) {
+    if (number == 0 || number == 1) {
+        return false;
+    }
+    for (let index = 2; index < number; index++) {
+        if (number % index == 0) {
+            return false;
+        }
+
     }
     return true;
 },
-// swap method for swaping the string charcter
-swapString(str, first, last) {
-    var as = '';
-    var ch = [];
-    ch = str.split('');
-    var temp = ch[first];
-    ch[first] = ch[last];
-    ch[last] = temp;
-    for (let index = 0; index < str.length; index++) {
-        as = as + ch[index];
-    }
-    return as;
-},
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
