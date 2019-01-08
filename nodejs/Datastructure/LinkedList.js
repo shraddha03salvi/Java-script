@@ -47,6 +47,23 @@ class LinkedList {
         this.capacity++;
         return;
     }
+    add(element){
+        var n=new Node(element);
+        if(this.head==null){
+            this.head=n;
+            this.size++;
+             return;
+        }else{
+            var current=this.head;
+            while(current.next){
+                current=current.next;
+            }
+            this.size++;
+            current.next=n;
+        }
+        
+
+    }
     search(element) {
         var temp = this.head;
         while (temp != null) {

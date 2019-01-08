@@ -1,0 +1,19 @@
+{
+    "stock": [{
+    "stockName": "Reliance",
+    "numberOfShare": 8,
+    "price": 5000
+    },
+    {
+    "stockName": "Accenture",
+    "numberOfShare": 10,
+    "price": 4000
+    },
+    {
+    "stockName": "TCS",
+    "numberOfShare": 5,
+    "price": 4000
+    }
+    ]
+    }
+    
