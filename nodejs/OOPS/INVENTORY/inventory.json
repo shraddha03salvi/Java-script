@@ -1,52 +1,50 @@
 {
-    "Rice": [{
-            "name": "basmati",
-            "weight": 2,
-            "price": 200
-        },
-        {
-            "name": "brown rice",
-            "weight": 3,
-            "price": 150
-        },
-        {
-            "name": "vada kolam rice",
-            "weight": 4,
-            "price": 68
-        }
-    ],
+    "rice" : [{
+                 "rice_name" : "Jasmine",
+                 "weight"    : "50",
+                 "price"     : "150"
+              },
+              {
+                "rice_name"  : "Basmati",
+                "weight"     : "40",
+                "price"      : "100"
+              },
+              {
+                "rice_name"  : "Arborio",
+                "weight"     : "30",
+                "price"      : "120"
+              }],
 
-    "Wheat": [{
-            "name": "Ashirvadh",
-            "weight": 5,
-            "price": 90
-        },
-        {
-            "name": "philsberry",
-            "weight": 5,
-            "price": 100
-        },
-        {
-            "name": "patanjali",
-            "weight": 5,
-            "price": 60
-        }
-    ],
+     "wheat" :[{
+                "wheat_name" : "Emmer",
+                "weight"     : "40",
+                "price"      : "80"
+              },
+              {
+                "wheat_name" : "Macaroni",
+                "weight"     : "20",
+                "price"      : "100"
+              },
+              {
+                "wheat_name" : "Ashirwad",
+                "weight"     : "50",
+                "price"      : "110"
+              }],
 
-    "Pulses": [{
-            "name": "Horse gram",
-            "weight": 4,
-            "price": 90
-        },
-        {
-            "name": "Red gram",
-            "weight": 5,
-            "price": 80
-        },
-        {
-            "name": "Green gram",
-            "weight": 6,
-            "price": 60
-        }
-    ]
+    "pulses" :[{
+               "pulse_name"  : "lentil",
+               "weight"      : "10",
+               "price"       : "90"
+              },
+              {
+               "pulse_name"  : "Mung",
+               "weight"      : "15",
+               "price"       : "85"
+              },
+              {
+                "pulse_name" : "Adzuki",
+                "weight"     : "20",
+                "price"      : "70"
+              
+              }]
 }

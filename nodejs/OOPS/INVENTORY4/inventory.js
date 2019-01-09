@@ -1,6 +1,6 @@
 /**
 * @description Program for Inventory Management 
-* @author      Sheetal Chaudhari
+* @author      shraddha Dhatavkar
 * @since       03/01/2019
 **/
 
@@ -22,7 +22,7 @@ var arrayOfObjects = JSON.parse(data);
 console.log(" ");
 var totalPrice = 1;
 
-function menue() 
+function menu() 
 {
     console.log(" ");
     //menue
@@ -72,7 +72,7 @@ function menue()
             //reading json file after insertion
             var data = fs.readFileSync('./inventory.json', 'utf-8');
             console.log("after insertion data is" + data);
-            menue();
+            menu();
         }
 
     }
@@ -103,7 +103,7 @@ function menue()
             console.log('Done!');
         })
         
-        menue();
+        menu();
     }
 
     //Exit
@@ -113,5 +113,5 @@ function menue()
     }
 }
 //calling function
-menue();
+menu();
 

@@ -1,0 +1,15 @@
+{
+    "customer" :[{
+        "Stockname": "Bajra",
+        "Number": 1,
+        "Price": 20
+    }, {
+        "Stockname": "wheat",
+        "Number": 3,
+        "Price": 30
+    }, {
+        "Stockname": "rice",
+        "Number": 2,
+        "Price": 67
+    }]
+}

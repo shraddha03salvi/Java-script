@@ -88,8 +88,7 @@ module.exports={
 
     },
         
-    
-    insertionSort(arr) {
+     insertionSort(arr) {
         n = arr.length;
         var ele;
         for (let i = 1; i < n; i++) {
