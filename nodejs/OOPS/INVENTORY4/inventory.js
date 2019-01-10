@@ -10,32 +10,25 @@ var fs = require('fs');
 //using prompy-sync asking user to enter the input
 var prompt = require('prompt-sync')();
 
-//reading data from a json file
+//read data from a json file
 var data = fs.readFileSync('./inventory.json', 'utf-8');
 
-//printing data from json file
+//print data from json file
 console.log("Data in a json file is\n" + data);
 
-//for holding the object 
+//for hold the object 
 var arrayOfObjects = JSON.parse(data);
 
 console.log(" ");
 var totalPrice = 1;
 
-function menu() 
+class menu
 {
-    console.log(" ");
-    //menue
-    console.log("Inventory Management-->");
-    console.log(" 1: Insert\n 2: Delete\n 3: Exit");
-
-    //asking user to enter the choice
-    var choice = prompt("Please enter your choice: ");
-
     //Insert  Operation
-    if (choice == '1') 
+    insert()
     {
-        nameRestriction = /[a-z]/ig;
+        var nameRestriction = /[a-z]/ig;
+        
         var num = prompt("Enter the value for the stock->");
         for (var i = 0; i < num; i++) 
         {
@@ -46,7 +39,7 @@ function menu()
             {
                 arrayOfObjects.push({
                     stockName: Name,
-                    shareNumber: weight,
+                    Number: weight,
                     Price: price
                 })
             }
@@ -58,29 +51,29 @@ function menu()
             console.log(arrayOfObjects);
             console.log("");
 
-            //calculating total price
+            //calculate total price
             totalPrice = parseInt(num) * parseInt(price);
 
             console.log("");
 
-            //calculating total price for all shares
+            //calculate  total price for all shares
             console.log("The total price of all the stocks is " + totalPrice);
 
             //writing arrayOfObjects on json file
             fs.writeFileSync('./inventory.json', JSON.stringify(arrayOfObjects), 'utf-8', function () { console.log('done') });
 
-            //reading json file after insertion
+            //read json file after insertion
             var data = fs.readFileSync('./inventory.json', 'utf-8');
             console.log("after insertion data is" + data);
-            menu();
+            
         }
-
+        Management();
     }
 
     //Delete Operation
-    else if (choice == '2') 
+    delete()
     {
-        //asking user to enter product name
+        // user enter product name
         var del = prompt("Please enter the name of product you want to delete from the inventory: ");
         
         //deleting item from the jason file
@@ -92,6 +85,8 @@ function menu()
                 arrayOfObjects.splice(index, 1);
             }
         }
+
+        //printing array after deletion
         console.log("after deletion data is");
         arrayOfObjects.forEach(element => 
         {
@@ -103,15 +98,42 @@ function menu()
             console.log('Done!');
         })
         
-        menu();
+        Management();
     }
-
-    //Exit
-    else (choice == '3')
+    exit()
     {
         process.exit();
+        Management();
     }
 }
-//calling function
-menu();
+
+function Management()
+{
+    var i= new menu();
+    
+    //printing options
+    console.log("Inventory Management-->");
+    console.log(" 1: Insert\n 2: Delete\n 3: Exit");
+
+    //choosing by  user to enter the choice
+    var choice = prompt("Please enter your choice: ");
+
+    switch(parseInt(choice))
+    {
+        case 1: i.insert();
+                break;
+        case 2: i.delete();
+                break;
+        case 3: i.exit();
+                break;
+        default:console.log("Invalid Input!!");
+
+    }
+}
+Management();
+
+
+
+
+
 

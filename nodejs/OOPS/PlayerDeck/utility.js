@@ -4,6 +4,7 @@ module.exports={
     /**
      * purpose: a method which returns all the card in mixing form. 
      */
+    
     giveCards(){
         var suit=["♣️","♦️", "♥️", "♠️"];
         var rank=["King","Queen","Jack","Ace","2","3","4","5","6","7","8","9","10"];
@@ -82,11 +83,7 @@ module.exports={
             
         }
     
-       
-
-
-
-    },
+        },
         
      insertionSort(arr) {
         n = arr.length;
@@ -103,4 +100,5 @@ module.exports={
         }
         return arr;
     },
+   
 }

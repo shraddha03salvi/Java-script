@@ -1,1 +1,17 @@
-{"Person":[{"Stockname":"Bajra","Number":1,"Price":20},{"Stockname":"wheat","Number":3,"Price":30},{"Stockname":"rice","Number":2,"Price":67},{"Stockname":"oats","Number":"1","Price":"70"},{"Stockname":"oats","Number":"1","Price":"60"}]}
+{
+    "Person": [
+        {
+            "Stockname": "wheat",
+            "Number": "1",
+            "Price": "20"
+        },
+        {
+            "Stockname": "pulses",
+            "Number": "1",
+            "Price": "20"
+        },
+        {
+            "u": {}
+        }
+    ]
+}

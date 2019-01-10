@@ -25,18 +25,20 @@ module.exports = {
     },
      address_book(data)
     {
-     var answer=readline.question("  Press \n 1.To add Person \n 2. To delete Person  \n 3. To display \n 4. To exit ");
+     var answer=readline.question("  Press \n 1.To add Person \n 2. To update Person  \n 3 To delete person \n 4. To display \n 5. To exit ");
      switch(answer)
      {
          case '1' : this.addPerson(data);
                     //return;
+         case '2' : this.update(data);
+                    //return;         
         
-         case '2' : this.deleted(data);
+         case '3' : this.deleted(data);
                      //return;
          
-         case '3' : this.displ(data);
+         case '4' : this.displ(data);
                      //return; 
-         case '4' : this.exit();            
+         case '5' : this.exit();            
      }
 
     },
@@ -91,6 +93,53 @@ module.exports = {
         this.Management(data);
        }
    },
+   update(data) {
+    let ans = readline.question("Enter the  name of the exsting person ");
+    let anss = readline.question("Enter the  number of exsting person");
+    for (let i = 0; i < data.person.length; i++) {
+        filestream.writeFileSync('address.json', JSON.stringify(data));
+        if (data.person[i].First_name == ans || data.person[i].Contact == anss) {
+            var que = readline.question("\nPrees \n 1. To update First name \n 2. To update Last name \n 3. To update contact \n 4.To update state \n 5. To update Address \n 6. To update zip \n 7. To Exit  ");
+            if (que == 1) {
+                let res = readline.question("Enter the new  First name of person ");
+                data.person[i].First_name = res;
+                return res;
+            }
+            else if (que == 2) {
+                let res1 = readline.question("Enter the new Last name of the person  ");
+                data.person[i].Last_name = res1;
+                this.save(data);
+            }
+            else if (que == 3) {
+                let res2 = readline.question("Enter the new contact number  ");
+                data.person[i].Contact = res2;
+                this.save(data);
+                filestream.writeFileSync('Book.json', JSON.stringify(data));
+            }
+            else if (que == 4) {
+                let res3 = readline.question("Enter the new state name ");
+                data.person[i].State = res3;
+                this.save(data);
+            }
+            else if (que == 5) {
+                let res4 = readline.question(" Enter the new address ");
+                data.person[i].Address = res4;
+                this.save(data);;
+            }
+            else if (que == 6) {
+                let res5 = readline.question("Enter the new zip ");
+                data.person[i].Zip = res5;
+                this.save(data);
+            }
+            else if (que == 7) {
+                return;;
+            }
+
+
+        }
+    }
+   },
+
 
    exit()
     {

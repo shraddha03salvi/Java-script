@@ -75,7 +75,8 @@ class Comapany
 //creating object for require file 
 var queue = new utility();
 
-//creating object for class
+function Queue()
+{//creating object for class
 var d = new Comapany();
 
 //asking user to enter the stock value
@@ -85,6 +86,20 @@ var num = prompt("Please enter the total number of stocks purchased: ");
 d.buy(num);
 d.accountReport();
 d.sell();
+}
+Queue();
 
 
-	
+/*//creating object for require file 
+var queue = new utility();
+
+//creating object for class
+var d = new Comapany();
+
+//asking user to enter the stock value
+var num = prompt("Please enter the total number of stocks purchased: ");
+
+//calling functions
+d.buy(num);
+d.accountReport();
+d.sell();*/	
